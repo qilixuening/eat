@@ -23,3 +23,13 @@ export const getUser = () => fetch('/v1/user', {
 
 // 获取城市地址列表
 export const getAddressList = userId => fetch(`/v1/users/${userId}/addresses`)
+
+// 获取与cityId对应的城市名称
+export const getCityName = cityId => fetch(`/v1/cities/${cityId}`)
+
+// 获取搜索地址
+export const getCityPlaces = (cityId, where) => fetch('/v1/pois', {
+  type: 'search',
+  city_id: cityId,
+  keyword: where
+})

@@ -16,7 +16,7 @@
         <span>定位不准时，请在城市列表中选择</span>
       </div>
       <router-link
-        :to="'city/'+guessCity"
+        :to="'/city/'+guessCityId"
         class="guess_city"
       >
         <span>{{ guessCity }}</span>

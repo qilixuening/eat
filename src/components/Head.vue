@@ -77,7 +77,7 @@ export default {
     },
     goBack: {
       type: Boolean,
-      default: true
+      default: false
     }
   },
   computed: {

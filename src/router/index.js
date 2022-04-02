@@ -18,6 +18,11 @@ const routes = [
         name: 'home',
         component: () => import('@/views/home/'),
         meta: { keepAlive: true }
+      },
+      {
+        path: '/city/:cityId',
+        name: 'city',
+        component: () => import('@/views/city/')
       }
     ]
   }
