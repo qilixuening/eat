@@ -33,3 +33,13 @@ export const getCityPlaces = (cityId, where) => fetch('/v1/pois', {
   city_id: cityId,
   keyword: where
 })
+
+// 获取msite页面地址信息
+export const getMsiteAddress = geohash => fetch(`/v2/pois/${geohash}`)
+
+// 获取msite页面食品类型信息
+export const getMsiteFoodTypes = geohash => fetch('/v2/index_entry', {
+  geohash,
+  group_type: '1',
+  'flags[]': 'F'
+})

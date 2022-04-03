@@ -25,7 +25,7 @@
           type="submit"
           name="submit"
           class="city_submit input_style"
-          @click="postpois"
+          @click="postpois()"
           value="提交"
         >
       </div>
@@ -35,7 +35,7 @@
       <li
         v-for="(place, index) in placeList"
         :key="index"
-        @click="nextpage(idnex, place.geohash)"
+        @click="nextpage(index, place.geohash)"
       >
         <h4 class="pois_name ellipsis">{{ place.name }}</h4>
         <p class="pois_address ellipsis">{{ place.address }}</p>

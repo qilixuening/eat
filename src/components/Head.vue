@@ -52,7 +52,7 @@
     <slot name="edit" />
     <slot name="msite-title" />
     <slot name="changecity" />
-    <slot name="changeLogin" />
+    <slot name="changelogin" />
   </header>
 </template>
 
@@ -60,6 +60,7 @@
 import { mapState, mapActions } from 'vuex'
 
 export default {
+  name: 'headIndex',
   data: () => ({
 
   }),

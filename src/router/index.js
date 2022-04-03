@@ -23,6 +23,11 @@ const routes = [
         path: '/city/:cityId',
         name: 'city',
         component: () => import('@/views/city/')
+      },
+      {
+        path: '/msite',
+        component: () => import('@/views/msite/'),
+        meta: { keepAlive: true }
       }
     ]
   }
