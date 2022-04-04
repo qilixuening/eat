@@ -28,6 +28,10 @@ const routes = [
         path: '/msite',
         component: () => import('@/views/msite/'),
         meta: { keepAlive: true }
+      },
+      {
+        path: '/search/:geohash',
+        component: () => import('@/views/search/')
       }
     ]
   }

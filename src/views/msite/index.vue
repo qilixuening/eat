@@ -71,6 +71,19 @@
       >
     </nav>
 
+    <div class="shop_list_container">
+      <header class="shop_header">
+        <svg class="shop_icon">
+          <use xlink:href="#shop" />
+        </svg>
+        <span class="shop_header_title">附近商家</span>
+      </header>
+      <shop-list
+        v-if="isMsiteReady"
+        :geohash="geohash"
+      />
+    </div>
+
     <foot-guide />
   </div>
 </template>
@@ -78,6 +91,7 @@
 <script>
 import headTop from '@/components/Head.vue'
 import footGuide from '@/components/FootGuide.vue'
+import shopList from '@/components/common/ShopList.vue'
 import { cityGuess, getMsiteAddress, getMsiteFoodTypes } from '@/api/getData'
 import { mapMutations } from 'vuex'
 
@@ -95,7 +109,8 @@ export default {
   }),
   components: {
     headTop,
-    footGuide
+    footGuide,
+    shopList
   },
   async beforeMount () {
     if (!this.$route.query.geohash) {
@@ -201,6 +216,24 @@ export default {
           text-align: center;
           @include sc(0.55rem, #666);
         }
+      }
+    }
+  }
+  .shop_list_container{
+    margin-top: .4rem;
+    border-top: 0.025rem solid $bc;
+    background-color: #fff;
+    .shop_header{
+      .shop_icon{
+        fill: #999;
+        margin-left: 0.6rem;
+        vertical-align: middle;
+        @include wh(0.6rem, 0.6rem);
+      }
+      .shop_header_title{
+        color: #999;
+        margin-left: 0.3rem;
+        @include font(0.55rem, 1.6rem);
       }
     }
   }
