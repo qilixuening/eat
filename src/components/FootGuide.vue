@@ -14,7 +14,7 @@
     </svg>
     <section
       class="guide_item"
-      @click="gotoAddress({ path: 'msite', query: { geohash } })"
+      @click="gotoAddress({ path: '/msite', query: { geohash } })"
     >
       <svg class="icon_style">
         <use
@@ -26,7 +26,7 @@
 
     <section
       class="guide_item"
-      @click="gotoAddress({ path: 'search', query: { geohash } })"
+      @click="gotoAddress({ path: `/search/${geohash}`})"
     >
       <svg class="icon_style">
         <use

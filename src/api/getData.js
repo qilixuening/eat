@@ -47,7 +47,6 @@ export const getMsiteFoodTypes = geohash => fetch('/v2/index_entry', {
 /**
  * 获取msite商铺列表
  */
-
 export const getShopList = (
   latitude,
   longitude,
@@ -78,3 +77,13 @@ export const getShopList = (
   }
   return fetch('/shopping/restaurants', data)
 }
+
+/**
+ * 获取search页面搜索结果
+ */
+export const searchRestaurant = (geohash, keyword) => fetch('/v4/restaurants', {
+  type: 'search',
+  geohash,
+  keyword,
+  'extras[]': 'restaurant_activity'
+})
