@@ -32,6 +32,11 @@ const routes = [
       {
         path: '/search/:geohash',
         component: () => import('@/views/search/')
+      },
+      {
+        path: '/login',
+        name: 'login',
+        component: () => import('@/views/login/')
       }
     ]
   }
