@@ -1,10 +1,11 @@
 import {
   GET_USERINFO,
   RECORD_ADDRESS,
-  SAVE_GEOHASH
+  SAVE_GEOHASH,
+  RECORD_USERINFO
 } from './mutation-types.js'
 
-// import { setStore, getStore } from '@/config/mUtils'
+import { setStore } from '@/config/mUtils'
 
 export default {
   // 获取用户信息存入vuex
@@ -29,5 +30,11 @@ export default {
   [RECORD_ADDRESS] (state, { latitude, longitude }) {
     state.latitude = latitude
     state.longitude = longitude
+  },
+  // 记录用户信息
+  [RECORD_USERINFO] (state, info) {
+    state.userInfo = info
+    state.login = true
+    setStore('user_id', info.user_id)
   }
 }

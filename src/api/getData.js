@@ -87,3 +87,45 @@ export const searchRestaurant = (geohash, keyword) => fetch('/v4/restaurants', {
   keyword,
   'extras[]': 'restaurant_activity'
 })
+
+/**
+ * 获取图片验证码
+ */
+export const getCaptchas = () => fetch('/v1/captchas', {
+
+}, 'POST')
+
+/**
+ * 检测帐号是否存在
+ */
+export const checkExist = (checkNumber, type) => fetch('v1/user/exists', {
+  [type]: checkNumber,
+  type
+})
+
+/**
+ * 获取短信验证码
+ */
+export const mobileCode = phone => fetch('/v4/mobile/verify_code/send', {
+  mobile: phone,
+  scene: 'login',
+  type: 'sms'
+}, 'POST')
+
+/**
+ * 手机号登录
+ */
+export const sendLogin = (code, mobile, validateToken) => fetch('/v1/login/app_mobile', {
+  code,
+  mobile,
+  validate_token: validateToken
+}, 'POST')
+
+/**
+ * 账号密码登录
+ */
+export const accountLogin = (username, password, captchaCode) => fetch('/v2/login', {
+  username,
+  password,
+  captcha_code: captchaCode
+}, 'POST')
