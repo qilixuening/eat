@@ -26,6 +26,7 @@ const routes = [
       },
       {
         path: '/msite',
+        name: 'msite',
         component: () => import('@/views/msite/'),
         meta: { keepAlive: true }
       },
@@ -37,6 +38,21 @@ const routes = [
         path: '/login',
         name: 'login',
         component: () => import('@/views/login/')
+      },
+      {
+        path: '/forget',
+        name: 'forget',
+        component: () => import('@/views/forget/')
+      },
+      {
+        path: '/find',
+        name: 'find',
+        component: () => import('@/views/find/')
+      },
+      {
+        path: '/food',
+        name: 'food',
+        component: () => import('@/views/food/')
       }
     ]
   }

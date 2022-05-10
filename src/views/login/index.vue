@@ -1,5 +1,5 @@
 <template>
-  <div class="login_container">
+  <div class="login_index_container">
     <head-top
       :head-title="loginWay ? '登录' : '密码登录'"
       :go-back="true"
@@ -50,13 +50,13 @@
           v-if="!showPassword"
           type="password"
           placeholder="密码"
-          v-model="password"
+          v-model="passWord"
         >
         <input
           v-else
           type="text"
           placeholder="密码"
-          v-model="password"
+          v-model="passWord"
         >
         <div
           class="button_switch"
@@ -98,7 +98,7 @@
     <p class="login_tips">
       温馨提示：未注册过的账号，登录时将自动注册
     </p>
-    <p>
+    <p class="login_tips">
       注册过的用户可以凭借账号密码登录
     </p>
     <div
@@ -116,8 +116,9 @@
     </router-link>
     <alert-tip
       v-if="showAlert"
+      :show-hide="showAlert"
       :alert-text="alertText"
-      @close-tip="closeTip"
+      @closeTip="closeTip"
     />
   </div>
 </template>
@@ -144,12 +145,12 @@ export default {
     validate_token: undefined, // 获取短信时返回的验证值
     computedTime: 0, // 倒计时数
     userInfo: undefined, // 获取到的用户信息
-    userAccount: null, // 用户名
-    passWord: undefined, // 密码
-    captchaCodeImg: undefined, // 验证码地址
+    userAccount: '', // 用户名
+    passWord: '', // 密码
+    captchaCodeImg: '', // 验证码地址
     codeNumber: undefined, // 验证码
     showAlert: false, // 显示提示组件
-    alertText: undefined // 提示的内容
+    alertText: '' // 提示的内容
   }),
   components: {
     headTop,
@@ -184,7 +185,7 @@ export default {
       this.showPassword = !this.showPassword
     },
     // 获取短信验证码
-    async getVerifyCOde () {
+    async getVerifyCode () {
       if (!this.rightPhoneNumber) {
         return undefined
       }
@@ -277,7 +278,7 @@ export default {
 <style lang="scss" scoped>
 @import '@/style/mixin';
 
-.loginContainer{
+.login_index_container{
   padding-top: 1.95rem;
   p, span, input{
     font-family: Helvetica Neue,Tahoma,Arial;

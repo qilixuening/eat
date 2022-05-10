@@ -129,3 +129,14 @@ export const accountLogin = (username, password, captchaCode) => fetch('/v2/logi
   password,
   captcha_code: captchaCode
 }, 'POST')
+
+/**
+ * 改密码
+ */
+export const changePassword = (username, oldpassWord, newpassword, confirmpassword, captchaCode) => fetch('/v2/changepassword', {
+  username,
+  oldpassWord,
+  newpassword,
+  confirmpassword,
+  captcha_code: captchaCode
+}, 'POST')

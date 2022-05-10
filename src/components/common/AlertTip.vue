@@ -10,6 +10,7 @@
     </section>
   </div>
 </template>
+
 <script>
 export default {
   name: 'alertTipIndex',
